@@ -1,10 +1,23 @@
 ﻿'use strict';
 
-function areIntersected(a, b) {
-    if (a.top >= (b.top + b.height) ||
-        (a.top + a.height) <= b.top ||
-        a.left >= (b.left + b.width) ||
-        (a.left + a.width) <= b.left) {
+let rectangleA = {
+    top: (Integer),
+    left: (Integer),
+    height: (Integer),
+    width: (Integer)
+}
+let rectangleB = {
+    top: (Integer),
+    left: (Integer),
+    height: (Integer),
+    width: (Integer)
+}
+
+function areIntersected(rectangleA, rectangleB) {
+    if (rectangleA.top >= (rectangleB.top + rectangleB.height) ||
+        (rectangleA.top + rectangleA.height) <= rectangleB.top ||
+        rectangleA.left >= (rectangleB.left + rectangleB.width) ||
+        (rectangleA.left + rectangleA.width) <= rectangleB.left) {
         return false;
     } else {
         return true;
