@@ -5,6 +5,8 @@ let rectangleB;
 
 
 function areIntersected(rectangleA, rectangleB) {
+
+
 	if (rectangleA.top >= (rectangleB.top + rectangleB.height) ||
 		(rectangleA.top + rectangleA.height) <= rectangleB.top ||
 		rectangleA.left >= (rectangleB.left + rectangleB.width) ||
@@ -18,9 +20,11 @@ function areIntersected(rectangleA, rectangleB) {
 function filterVisible(rectangleA, array) {
 	return array.filter(function (element) {
 		if (element.width !== 0 && element.height !== 0) {
-			return areIntersected(a, element);
+			return areIntersected(rectangleA, element);
 		} else {
 			return false;
 		}
 	});
 }
+
+console.log(rectangleA, rectangleB, filterVisible);
