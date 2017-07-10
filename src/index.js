@@ -1,9 +1,5 @@
 ﻿'use strict';
 
-let rectangleA;
-let rectangleB;
-
-
 function areIntersected(rectangleA, rectangleB) {
 
 
@@ -27,4 +23,4 @@ function filterVisible(rectangleA, array) {
 	});
 }
 
-console.log(rectangleA, rectangleB, filterVisible);
+console.log(filterVisible);
