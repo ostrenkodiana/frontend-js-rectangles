@@ -2,23 +2,32 @@
 
 function areIntersected(rectangleA, rectangleB) {
 
-	function bottom(rectangle) {
+	function getBottomSide(rectangle) {
 		return rectangle.top + rectangle.height;
 	}
 
-	function right(rectangle) {
+	function getRightSide(rectangle) {
 		return rectangle.left + rectangle.width;
 	}
 
-	if (rectangleA.top >= bottom(rectangleB) ||
-		bottom(rectangleA) <= rectangleB.top ||
-		rectangleA.left >= right(rectangleB) ||
-		right(rectangleA) <= rectangleB.left) {
-		return false;
-	} else {
+	let intersectedAxisX;
+	let intersectedAxisY;
+
+	if (rectangleA.top < getBottomSide(rectangleB) && getBottomSide(rectangleA) > rectangleB.top) {
+		intersectedAxisY = true;
+	}
+	if (rectangleA.left < getRightSide(rectangleB) && getRightSide(rectangleA) > rectangleB.left) {
+		intersectedAxisX = true;
+	}
+
+	if (intersectedAxisX & intersectedAxisY) {
 		return true;
 	}
+
+	return false;
 }
+
+
 
 function filterVisible(rectangleA, array) {
 	return array.filter(function (element) {
