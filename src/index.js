@@ -2,11 +2,18 @@
 
 function areIntersected(rectangleA, rectangleB) {
 
+	function bottom(rectangle) {
+		return rectangle.top + rectangle.height;
+	}
 
-	if (rectangleA.top >= (rectangleB.top + rectangleB.height) ||
-		(rectangleA.top + rectangleA.height) <= rectangleB.top ||
-		rectangleA.left >= (rectangleB.left + rectangleB.width) ||
-		(rectangleA.left + rectangleA.width) <= rectangleB.left) {
+	function right(rectangle) {
+		return rectangle.left + rectangle.width;
+	}
+
+	if (rectangleA.top >= bottom(rectangleB) ||
+		bottom(rectangleA) <= rectangleB.top ||
+		rectangleA.left >= right(rectangleB) ||
+		right(rectangleA) <= rectangleB.left) {
 		return false;
 	} else {
 		return true;
